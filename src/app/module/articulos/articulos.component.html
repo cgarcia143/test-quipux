@@ -1,0 +1,59 @@
+<div class="container mt-3">
+    <div class="row">
+      <!-- Contact Information -->
+      <div class="col-md-4">
+        <h2>INFORMACIÓN DEL CONTACTO</h2>
+        <p><strong>Dirección:</strong><br>{{ contactInfo.direccion }}</p>
+        <p><strong>Correo electrónico:</strong><br>{{ contactInfo.correoElectronico }}</p>
+        <p><strong>Sitio Web:</strong><br>{{ contactInfo.sitioWeb }}</p>
+        <p>
+          <strong>Red social:</strong><br>
+          <a [href]="contactInfo.redSocial.instagram" target="_blank">{{ contactInfo.redSocial.instagram }}</a><br>
+          <a [href]="contactInfo.redSocial.linkedin" target="_blank">{{ contactInfo.redSocial.linkedin }}</a>
+        </p>
+        <p><strong>Dirección de correspondencia de correo:</strong><br>{{ contactInfo.direccionCorrespondencia }}</p>
+        <p>
+          <strong>Número de teléfonos:</strong><br>
+          Fijo: {{ contactInfo.telefonos.fijo }}<br>
+          Celular: {{ contactInfo.telefonos.celular }}
+        </p>
+      </div>
+  
+      <!-- Carousel and Gallery -->
+      <div class="col-md-8">
+        <!-- Carousel -->
+        <div id="imageCarousel" class="carousel slide mb-4" data-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let image of carouselImages; let i = index" 
+                 class="carousel-item" 
+                 [class.active]="i === 0">
+              <img [src]="image.src" [alt]="image.alt" class="d-block w-100">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+  
+        <!-- Gallery -->
+        <div class="row ">
+          <div *ngFor="let item of galleryItems" class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-img-top circular-image">
+                <img [src]="item.src" [alt]="item.name">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

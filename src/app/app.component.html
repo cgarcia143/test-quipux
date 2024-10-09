@@ -1,0 +1,11 @@
+<div class="d-flex">
+  <app-asidebar [isOpen]="sidebarOpen" (toggleSidebar)="toggleSidebar()"></app-asidebar>
+  <div id="content" class="flex-grow-1">
+    <app-navbar [companyName]="companyName" [userName]="userName" (toggleSidebar)="toggleSidebar()"></app-navbar>
+    <div class="container-fluid">
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

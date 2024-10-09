@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn" (click)="onToggleSidebar()">
+            <i [ngClass]="{'fi fi-br-cross': !sidebarOpen, 'fi fi-br-menu-burger': sidebarOpen}"></i>
+        </button>
+        <img src="assets/img/logo.png" alt="User">
+        <nav aria-label="breadcrumb" class="ms-3 flex-grow-1">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#" routerLink="/">Home</a></li>
+                <li *ngFor="let breadcrumb of breadcrumbs; let last = last" class="breadcrumb-item"
+                    [class.active]="last">
+                    <ng-container *ngIf="!last">
+                        <a href="#" [routerLink]="'/' + breadcrumb.toLowerCase()">{{ breadcrumb }}</a>
+                    </ng-container>
+                    <ng-container *ngIf="last">
+                        {{ breadcrumb }}
+                    </ng-container>
+                </li>
+            </ol>
+        </nav>
+        <div class="ms-auto">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="flaticon-user mr-2"></i> {{ userName }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#"><i class="fi fi-sr-user mr-2"></i> Perfil</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fi fi-rr-settings mr-2"></i> Ajuste</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fi fi-br-cross mr-2"></i> Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

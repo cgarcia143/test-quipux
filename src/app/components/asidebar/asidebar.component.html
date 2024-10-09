@@ -1,0 +1,16 @@
+<nav id="sidebar" [ngClass]="{'active': !isOpen}" class="bg-dark text-white">
+    <div class="sidebar-header">
+        <h3 [ngClass]="{'d-none': !isOpen}">QUIPUX</h3>
+        <button *ngIf="isOpen" class="btn btn-link text-white d-md-none" (click)="onToggleSidebar()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <ul class="list-unstyled components">
+        <li *ngFor="let item of menuItems" [ngClass]="{'active': isActive(item.route)}">
+            <a [routerLink]="item.route" class="d-flex align-items-center">
+                <i [class]="item.icon + ' mx-auto'"></i>
+                <span [ngClass]="{'d-none': !isOpen}">{{ item.text }}</span>
+            </a>
+        </li>
+    </ul>
+</nav>
